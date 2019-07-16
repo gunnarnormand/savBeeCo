@@ -1,8 +1,9 @@
-# Gulp 4 Starter template
+# Savannah Bee Company
 
-##  🤠 Yeehaw
+## Project Description
+>With bee extinction becoming highly probable, we’ve created a microsite extension for Savannah Bee Company to promote >natural habitats for pollinators.
 
-### instructions
+### local setup instructions
 
 __in terminal cd to project directory and run:__
 
