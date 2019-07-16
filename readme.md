@@ -1,7 +1,7 @@
 # Savannah Bee Company
 
 ## Project Description
->With bee extinction becoming highly probable, we’ve created a microsite extension for Savannah Bee Company to promote >natural habitats for pollinators.
+>With bee extinction becoming highly probable, we’ve created a microsite extension for Savannah Bee Company to promote natural habitats for pollinators.
 
 ### local setup instructions
 
