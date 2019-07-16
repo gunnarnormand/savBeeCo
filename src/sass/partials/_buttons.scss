@@ -1,0 +1,364 @@
+/*
+==============================================
+_buttons.scss
+==============================================
+*/
+
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button[type='submit'],
+button {
+	color: $brown;
+	font-family: $heading-font, sans-serif;
+	text-align: left;
+	font-size: 90%;
+	line-height: normal;
+	overflow: visible;
+	border: 0;
+	padding: 10px;
+	background: none;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+.small-btn-text {
+	font-size: 80%;
+
+	@include breakpoint-desktop {
+		font-size: 115%;
+	}
+}
+
+.checkout-btn {
+	position: relative;
+	margin: 5px;
+	min-width: 145px;
+	min-height: 22px;
+
+	@include breakpoint-desktop {
+		min-width: 190px;
+		line-height: 1.5;
+	}
+
+	span {
+		font-size: 85%;
+	}
+
+	svg {
+		min-width: 145px;
+		max-width: 145px;
+		min-height: 22px;
+		position: absolute;
+		top: 3px;
+		left: 0;
+	}
+}
+
+.grow-btns {
+	position: relative;
+	margin: 5px;
+	min-width: 145px;
+	min-height: 22px;
+
+	@include breakpoint-desktop {
+		min-width: 190px;
+		line-height: 1.5;
+	}
+
+	span {
+		font-size: 85%;
+	}
+
+	svg {
+		min-width: 145px;
+		min-height: 22px;
+		position: absolute;
+		top: 3px;
+		left: 0;
+	}
+}
+
+.herb-btns[type='button'] {
+	margin: 5px;
+	min-width: 160px;
+	min-height: 22px;
+	padding-left: 50px;
+	position: relative;
+
+	@include breakpoint-desktop {
+		min-width: 200px;
+		padding-left: 60px;
+	}
+
+	svg {
+		min-width: 160px;
+		min-height: 22px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.price {
+		position: absolute;
+		top: 9px;
+		left: 12px;
+		color: $primary-bg;
+		font-size: 15px;
+		max-width: none;
+		margin-top: 0;
+		margin-left: 0;
+
+		@include breakpoint-desktop {
+			top: 14px;
+			left: 15px;
+		}
+
+		span {
+			font-size: 12px;
+		}
+	}
+}
+
+.back-btn-grow {
+	cursor: pointer;
+	height: 34px;
+	width: 50px;
+	margin-right: 20px;
+
+	@include breakpoint-mobile {
+		padding-right: 5px;
+		margin-right: 0;
+	}
+
+	@include breakpoint-mobile-lg {
+		margin-left: 25px;
+	}
+
+	@include breakpoint-tablet {
+		padding-right: 0;
+		margin-right: 20px;
+		margin-left: 0;
+	}
+
+}
+
+.back-btn-herbs {
+	cursor: pointer;
+	height: 34px;
+	width: 50px;
+	margin-right: 15px;
+
+	@include breakpoint-mobile-lg {
+		margin-right: 25px;
+	}
+
+	@include breakpoint-tablet {
+		margin-right: 40px;
+	}
+}
+
+.donate-btn-first {
+	position: relative;
+	margin-right: 45px;
+
+	@include breakpoint-desktop {
+		padding: 15px;
+	}
+
+	svg {
+		min-width: 177px;
+		min-height: 40px;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		@include breakpoint-desktop {
+			min-width: 230px;
+		}
+	}
+}
+
+.donate-btn {
+	position: relative;
+	margin-bottom: 5px;
+	padding-left: 50px;
+	min-width: 160px;
+	min-height: 22px;
+
+	@include breakpoint-tablet {
+		margin-bottom: 15px;
+		padding-left: 50px;
+	}
+
+	@include breakpoint-desktop {
+		min-width: 225px;
+		padding: 13px 13px 13px 70px;
+	}
+
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 160px;
+		min-height: 22px;
+	}
+
+	.price {
+		position: absolute;
+		top: 1px;
+		left: 11px;
+		color: $primary-bg;
+		font-size: 15px;
+		max-width: none;
+		margin-top: 0;
+		margin-left: 0;
+
+		@include breakpoint-desktop {
+			top: 3px;
+			left: 15px;
+		}
+
+		span {
+			font-size: 12px;
+
+			@include breakpoint-desktop {
+				font-size: 15px;
+			}
+		}
+	}
+}
+
+.custom-donation {
+	display: none;
+	position: relative;
+	padding: 10px;
+	border: 0;
+	text-align: left;
+	min-width: 160px;
+	min-height: 22px;
+
+	@include breakpoint-desktop {
+		min-width: 225px;
+	}
+
+	input {
+		cursor: auto;
+		max-width: 115px;
+		height: 35px;
+		min-height: 22px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		-webkit-appearance: none;
+		user-select: none;
+		padding: 0 0 0 .25em;
+		border-width: 0;
+		border-style: none;
+		border-image: none;
+		text-indent: 5px;
+		font-family: $heading-font;
+		font-size: 70%;
+		z-index: 1;
+
+		@include breakpoint-desktop {
+			max-width: 157px;
+			height: 45px;
+			text-indent: 15px;
+			font-size: 110%;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 160px;
+		min-height: 22px;
+
+		@include breakpoint-desktop {
+			min-width: 225px;
+		}
+	}
+}
+
+.email-form {
+	position: relative;
+	width: 250px;
+	height: 60px;
+
+	input {
+		-webkit-appearance: none;
+		user-select: none;
+		border-width: 0;
+		border-style: none;
+		border-image: none;
+		box-sizing: border-box;
+
+		&:focus {
+			outline: 0;
+		}
+
+		&:blur {
+			outline: 0;
+		}
+	}
+
+	input[type='email'] {
+		cursor: text;
+		height: 39px;
+		width: 180px;
+		position: absolute;
+		top: 11px;
+		left: 20px;
+		padding: 0 0 0 .25em;
+		z-index: 5;
+		font-family: $heading-font;
+		font-size: 120%;
+		color: $brown;
+		text-indent: 5px;
+	}
+
+	button[type='submit'] {
+		cursor: pointer;
+		width: 48px;
+		height: 40px;
+		position: absolute;
+		top: 11px;
+		right: 1px;
+		color: $primary-bg;
+		font-size: 15px;
+		background-color: transparent;
+		text-transform: uppercase;
+		font-family: $paragraph-font;
+		padding: 10px;
+		border: 0;
+		text-align: left;
+	}
+
+	svg {
+		height: 100%;
+		width: 100%;
+		z-index: 0;
+	}
+}

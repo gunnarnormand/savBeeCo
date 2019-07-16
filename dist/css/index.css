@@ -1,0 +1,2467 @@
+/*
+==============================================
+CONTENT:	Savannha Bee Company
+AUTHOR:		Gunnar Normand
+==============================================
+
+TABLE OF CONTENTS:
+
+0. Variables
+1. Normalize
+2. Typography
+3. Pagination
+2. Main Layout
+
+==============================================
+*/
+/* 0. Variables ================================= */
+/*
+==============================================
+_variables.scss
+==============================================
+*/
+/* 1. Normalize ================================= */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+	font-family: sans-serif;
+	/* 1 */
+	-ms-text-size-adjust: 100%;
+	/* 2 */
+	-webkit-text-size-adjust: 100%;
+	/* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+	margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	/* 1 */
+	vertical-align: baseline;
+	/* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+	display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+	background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+	outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+	font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+	font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+	font-size: 2em;
+	margin: .67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+	font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -.5em;
+}
+
+sub {
+	bottom: -.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+	border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+	overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+	margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+	overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+	/* 1 */
+	font: inherit;
+	/* 2 */
+	margin: 0;
+	/* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+	overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+	text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+	-webkit-appearance: button;
+	/* 2 */
+	cursor: pointer;
+	/* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+	line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type='checkbox'],
+input[type='radio'] {
+	box-sizing: border-box;
+	/* 1 */
+	padding: 0;
+	/* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type='search'] {
+	-webkit-appearance: textfield;
+	/* 1 */
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	/* 2 */
+	box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: .35em .625em .75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+	border: 0;
+	/* 1 */
+	padding: 0;
+	/* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+	overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+	font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+
+/* 2. Typography ================================= */
+/*
+==============================================
+_typography.scss
+==============================================
+*/
+@font-face {
+	font-family: 'AkzidenzGroteskBE-Regular';
+	src: url("../fonts/AkzidenzGroteskBE-Regular.eot") format("embedded-opentype"), url("../fonts/AkzidenzGroteskBE-Regular.otf") format("opentype"), url("../fonts/AkzidenzGroteskBE-Regular.woff") format("woff"), url("../fonts/AkzidenzGroteskBE-Regular.ttf") format("truetype"), url("../fonts/AkzidenzGroteskBE-Regular.svg#AkzidenzGroteskBE-Regular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "moderno-fb", serif;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 32px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	line-height: 1;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18.72px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 13.28px;
+}
+
+h6 {
+	font-size: 10.72px;
+	color: #fcfcf5;
+	font-weight: 100;
+	padding: 10px 0;
+	opacity: .8;
+}
+
+@media only screen and (min-width: 425px) {
+	h6 {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	h6 {
+		font-size: 56px;
+		line-height: 1.3;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	h6 {
+		font-size: 42px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	h6 {
+		font-size: 56px;
+	}
+}
+
+p {
+	font-size: 14px;
+	line-height: 1.3;
+	padding: 10px 0;
+	margin: 0;
+}
+
+@media only screen and (min-width: 320px) {
+	p {
+		font-size: 17px;
+	}
+}
+
+@media only screen and (min-width: 375px) {
+	p {
+		font-size: 19px;
+	}
+}
+
+@media only screen and (min-width: 425px) {
+	p {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	p {
+		font-size: 14px;
+	}
+}
+
+/* 2. Buttons ================================= */
+/*
+==============================================
+_buttons.scss
+==============================================
+*/
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button[type='submit'],
+button {
+	color: #512d1d;
+	font-family: "moderno-fb", sans-serif;
+	text-align: left;
+	font-size: 90%;
+	line-height: normal;
+	overflow: visible;
+	border: 0;
+	padding: 10px;
+	background: none;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+input[type='submit']:hover,
+input[type='reset']:hover,
+input[type='button']:hover,
+button[type='submit']:hover,
+button:hover {
+	cursor: pointer;
+}
+
+input[type='submit']:focus,
+input[type='reset']:focus,
+input[type='button']:focus,
+button[type='submit']:focus,
+button:focus {
+	outline: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+.small-btn-text {
+	font-size: 80%;
+}
+
+@media only screen and (min-width: 1440px) {
+	.small-btn-text {
+		font-size: 115%;
+	}
+}
+
+.checkout-btn {
+	position: relative;
+	margin: 5px;
+	min-width: 145px;
+	min-height: 22px;
+}
+
+@media only screen and (min-width: 1440px) {
+	.checkout-btn {
+		min-width: 190px;
+		line-height: 1.5;
+	}
+}
+
+.checkout-btn span {
+	font-size: 85%;
+}
+
+.checkout-btn svg {
+	min-width: 145px;
+	max-width: 145px;
+	min-height: 22px;
+	position: absolute;
+	top: 3px;
+	left: 0;
+}
+
+.grow-btns {
+	position: relative;
+	margin: 5px;
+	min-width: 145px;
+	min-height: 22px;
+}
+
+@media only screen and (min-width: 1440px) {
+	.grow-btns {
+		min-width: 190px;
+		line-height: 1.5;
+	}
+}
+
+.grow-btns span {
+	font-size: 85%;
+}
+
+.grow-btns svg {
+	min-width: 145px;
+	min-height: 22px;
+	position: absolute;
+	top: 3px;
+	left: 0;
+}
+
+.herb-btns[type='button'] {
+	margin: 5px;
+	min-width: 160px;
+	min-height: 22px;
+	padding-left: 50px;
+	position: relative;
+}
+
+@media only screen and (min-width: 1440px) {
+	.herb-btns[type='button'] {
+		min-width: 200px;
+		padding-left: 60px;
+	}
+}
+
+.herb-btns[type='button'] svg {
+	min-width: 160px;
+	min-height: 22px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.herb-btns[type='button'] .price {
+	position: absolute;
+	top: 9px;
+	left: 12px;
+	color: #fcfcf5;
+	font-size: 15px;
+	max-width: none;
+	margin-top: 0;
+	margin-left: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+	.herb-btns[type='button'] .price {
+		top: 14px;
+		left: 15px;
+	}
+}
+
+.herb-btns[type='button'] .price span {
+	font-size: 12px;
+}
+
+.back-btn-grow {
+	cursor: pointer;
+	height: 34px;
+	width: 50px;
+	margin-right: 20px;
+}
+
+@media only screen and (min-width: 375px) {
+	.back-btn-grow {
+		padding-right: 5px;
+		margin-right: 0;
+	}
+}
+
+@media only screen and (min-width: 425px) {
+	.back-btn-grow {
+		margin-left: 25px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.back-btn-grow {
+		padding-right: 0;
+		margin-right: 20px;
+		margin-left: 0;
+	}
+}
+
+.back-btn-herbs {
+	cursor: pointer;
+	height: 34px;
+	width: 50px;
+	margin-right: 15px;
+}
+
+@media only screen and (min-width: 425px) {
+	.back-btn-herbs {
+		margin-right: 25px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.back-btn-herbs {
+		margin-right: 40px;
+	}
+}
+
+.donate-btn-first {
+	position: relative;
+	margin-right: 45px;
+}
+
+@media only screen and (min-width: 1440px) {
+	.donate-btn-first {
+		padding: 15px;
+	}
+}
+
+.donate-btn-first svg {
+	min-width: 177px;
+	min-height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+	.donate-btn-first svg {
+		min-width: 230px;
+	}
+}
+
+.donate-btn {
+	position: relative;
+	margin-bottom: 5px;
+	padding-left: 50px;
+	min-width: 160px;
+	min-height: 22px;
+}
+
+@media only screen and (min-width: 768px) {
+	.donate-btn {
+		margin-bottom: 15px;
+		padding-left: 50px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.donate-btn {
+		min-width: 225px;
+		padding: 13px 13px 13px 70px;
+	}
+}
+
+.donate-btn svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 160px;
+	min-height: 22px;
+}
+
+.donate-btn .price {
+	position: absolute;
+	top: 1px;
+	left: 11px;
+	color: #fcfcf5;
+	font-size: 15px;
+	max-width: none;
+	margin-top: 0;
+	margin-left: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+	.donate-btn .price {
+		top: 3px;
+		left: 15px;
+	}
+}
+
+.donate-btn .price span {
+	font-size: 12px;
+}
+
+@media only screen and (min-width: 1440px) {
+	.donate-btn .price span {
+		font-size: 15px;
+	}
+}
+
+.custom-donation {
+	display: none;
+	position: relative;
+	padding: 10px;
+	border: 0;
+	text-align: left;
+	min-width: 160px;
+	min-height: 22px;
+}
+
+@media only screen and (min-width: 1440px) {
+	.custom-donation {
+		min-width: 225px;
+	}
+}
+
+.custom-donation input {
+	cursor: auto;
+	max-width: 115px;
+	height: 35px;
+	min-height: 22px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-appearance: none;
+	user-select: none;
+	padding: 0 0 0 .25em;
+	border-width: 0;
+	border-style: none;
+	border-image: none;
+	text-indent: 5px;
+	font-family: "moderno-fb";
+	font-size: 70%;
+	z-index: 1;
+}
+
+@media only screen and (min-width: 1440px) {
+	.custom-donation input {
+		max-width: 157px;
+		height: 45px;
+		text-indent: 15px;
+		font-size: 110%;
+	}
+}
+
+.custom-donation input:focus {
+	outline: none;
+}
+
+.custom-donation svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 160px;
+	min-height: 22px;
+}
+
+@media only screen and (min-width: 1440px) {
+	.custom-donation svg {
+		min-width: 225px;
+	}
+}
+
+.email-form {
+	position: relative;
+	width: 250px;
+	height: 60px;
+}
+
+.email-form input {
+	-webkit-appearance: none;
+	user-select: none;
+	border-width: 0;
+	border-style: none;
+	border-image: none;
+	box-sizing: border-box;
+}
+
+.email-form input:focus {
+	outline: 0;
+}
+
+.email-form input:blur {
+	outline: 0;
+}
+
+.email-form input[type='email'] {
+	cursor: text;
+	height: 39px;
+	width: 180px;
+	position: absolute;
+	top: 11px;
+	left: 20px;
+	padding: 0 0 0 .25em;
+	z-index: 5;
+	font-family: "moderno-fb";
+	font-size: 120%;
+	color: #512d1d;
+	text-indent: 5px;
+}
+
+.email-form button[type='submit'] {
+	cursor: pointer;
+	width: 48px;
+	height: 40px;
+	position: absolute;
+	top: 11px;
+	right: 1px;
+	color: #fcfcf5;
+	font-size: 15px;
+	background-color: transparent;
+	text-transform: uppercase;
+	font-family: "AkzidenzGroteskBE-Regular";
+	padding: 10px;
+	border: 0;
+	text-align: left;
+}
+
+.email-form svg {
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+}
+
+/* 2. One Page Scroll ================================= */
+/*
+==============================================
+_onepagescroll.scss
+==============================================
+*/
+body,
+html {
+	margin: 0;
+	overflow: hidden;
+	-webkit-transition: opacity 400ms;
+	-moz-transition: opacity 400ms;
+	transition: opacity 400ms;
+}
+
+.onepage-wrapper,
+body,
+html {
+	display: block;
+	position: static;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.onepage-wrapper {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	padding: 0;
+	-webkit-transform-style: preserve-3d;
+}
+
+.onepage-wrapper .ops-section {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+/* 2. Pagination ================================= */
+/*
+==============================================
+_pagination.scss
+==============================================
+*/
+.onepage-pagination {
+	position: absolute;
+	z-index: 100;
+	left: 5px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	list-style-type: none;
+}
+
+@media only screen and (min-width: 768px) {
+	.onepage-pagination {
+		top: 25%;
+	}
+}
+
+.onepage-pagination li {
+	padding: .25rem 0;
+}
+
+.onepage-pagination li a {
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 1rem;
+	height: 1rem;
+	margin: 0 1rem;
+	border-radius: 50%;
+	background-color: rgba(81, 45, 29, 0.6);
+	border: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.onepage-pagination li a {
+		width: .8rem;
+		height: .8rem;
+		margin: 0 .8rem;
+	}
+}
+
+.onepage-pagination li a::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 1rem;
+	height: 1rem;
+	background: #512d1d;
+	border-radius: 50%;
+	transition: transform .5s;
+	transform: translate(-50%, -50%) scale(0);
+}
+
+.onepage-pagination li a.active::before, .onepage-pagination li a:hover::before {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+@media only screen and (min-width: 768px) {
+	.onepage-pagination li a.active::before, .onepage-pagination li a:hover::before {
+		transform: translate(-50%, -50%) scale(0.8);
+	}
+}
+
+/* 2. Main Layout ================================= */
+/*
+==============================================
+_main.scss
+==============================================
+*/
+* {
+	box-sizing: border-box;
+}
+
+*:focus {
+	outline: none;
+}
+
+body,
+html {
+	font-family: "AkzidenzGroteskBE-Regular", sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	color: #512d1d;
+}
+
+body {
+	background-color: rgba(255, 255, 255, 0);
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+}
+
+img {
+	display: block;
+	width: auto;
+	height: auto;
+}
+
+section {
+	background-color: #fffef7;
+}
+
+.bees {
+	width: 100%;
+}
+
+.bee1,
+.bee2,
+.bee3 {
+	height: 265px;
+	width: auto;
+	position: absolute;
+	bottom: -100px;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	z-index: 98;
+	opacity: 1;
+	will-change: opacity, transform;
+}
+
+@media only screen and (min-width: 768px) {
+	.bee1,
+	.bee2,
+	.bee3 {
+		height: 389px;
+		bottom: -275px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.bee1,
+	.bee2,
+	.bee3 {
+		bottom: -250px;
+		height: 489px;
+	}
+}
+
+.bee2,
+.bee3 {
+	opacity: 0;
+}
+
+.scroll-indicator {
+	height: 50px;
+	position: absolute;
+	bottom: 110px;
+	left: 51%;
+	transform: translateX(-50%);
+	z-index: 98;
+	opacity: 0;
+	will-change: opacity;
+	transition-property: opacity;
+	transition-duration: .5s;
+	transition-timing-function: ease-in-out;
+}
+
+@media only screen and (min-width: 425px) {
+	.scroll-indicator {
+		left: 50.5%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.scroll-indicator {
+		height: 65px;
+		bottom: 90px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.scroll-indicator {
+		height: 100px;
+		bottom: 130px;
+	}
+}
+
+.inline-link {
+	color: #512d1d;
+	text-decoration: none;
+	letter-spacing: 1.25px;
+	font-size: 110%;
+	position: relative;
+	padding: 5px 0;
+}
+
+.link-highlight {
+	position: absolute;
+	bottom: 3px;
+	left: 0;
+	width: 0;
+	height: 30%;
+	background: rgba(81, 45, 29, 0.25);
+	display: block;
+}
+
+.remove {
+	max-width: max-content;
+	transition-property: color;
+	transition-duration: .3s;
+	transition-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.remove:hover {
+	color: #f0b227;
+}
+
+/* 2. Loader ================================= */
+/*
+==============================================
+_loader.scss
+==============================================
+*/
+.loader {
+	height: 100%;
+	width: 100%;
+	background-color: #f0b227;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	z-index: 101;
+}
+
+.loader img {
+	max-height: 200px;
+}
+
+@media only screen and (min-width: 768px) {
+	.loader img {
+		max-height: 359px;
+	}
+}
+
+/* 2. Header ================================= */
+/*
+==============================================
+_header.scss
+==============================================
+*/
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 42px;
+	width: 100%;
+	background-color: transparent;
+	z-index: 100;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-logo {
+	display: block;
+	height: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+	.nav-logo {
+		height: 14px;
+	}
+}
+
+.nav-logo img {
+	height: 100%;
+}
+
+.shop-btn {
+	width: 29px;
+	height: 50px;
+	margin-right: 32px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+	.shop-btn {
+		width: 58px;
+		height: 101px;
+	}
+}
+
+.shop-btn:hover {
+	cursor: pointer;
+}
+
+.tinybees {
+	width: 29px;
+	margin-right: 32px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: -1;
+}
+
+@media only screen and (min-width: 1440px) {
+	.tinybees {
+		width: 58px;
+		height: 101px;
+		margin-right: 33px;
+	}
+}
+
+.tinybees.menu-active {
+	margin-right: 0;
+	right: 50%;
+	top: 100px;
+	transform: translateX(50%);
+}
+
+@media only screen and (min-width: 768px) {
+	.tinybees.menu-active {
+		right: 25%;
+	}
+}
+
+.tinybees img {
+	opacity: 0;
+}
+
+.cart {
+	margin-right: 20px;
+	top: 55px;
+	text-transform: uppercase;
+	position: absolute;
+	right: 0;
+	max-width: 58px;
+	height: auto;
+	color: #512d1d;
+	margin-top: 5px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+@media only screen and (min-width: 1440px) {
+	.cart {
+		margin-right: 38px;
+		top: 101px;
+	}
+}
+
+.tooltip {
+	opacity: 0;
+	margin-right: 5px;
+	top: 55px;
+	text-transform: uppercase;
+	position: absolute;
+	right: 0;
+	color: #512d1d;
+	margin-top: 5px;
+	font-size: 8px;
+}
+
+@media only screen and (min-width: 1440px) {
+	.tooltip {
+		margin-right: 20px;
+		top: 101px;
+	}
+}
+
+/* 2. Aside ================================= */
+/*
+==============================================
+_aside.scss
+==============================================
+*/
+aside {
+	width: 100%;
+	height: 100%;
+	background-color: #fcfcf5;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 99;
+	will-change: transform, opacity, z-index;
+	display: none;
+}
+
+aside .shopping-cart {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	background-color: #fffef7;
+}
+
+@media only screen and (min-width: 768px) {
+	aside .shopping-cart {
+		width: 50%;
+	}
+}
+
+aside .shopping-cart .menu-back {
+	cursor: pointer;
+	width: 50px;
+	height: 25px;
+	position: absolute;
+	top: 1em;
+	left: 1em;
+}
+
+aside .shopping-cart img {
+	height: 140px;
+}
+
+aside .shopping-cart h2 {
+	font-family: "AkzidenzGroteskBE-Regular";
+	text-transform: uppercase;
+	margin-top: 20px;
+	font-weight: 400;
+}
+
+aside .overlay {
+	cursor: url("../img/exit.svg"), pointer;
+	width: 50%;
+	height: 100%;
+	background-color: #fcfcf5;
+	position: relative;
+	display: none;
+}
+
+@media only screen and (min-width: 768px) {
+	aside .overlay {
+		display: block;
+	}
+}
+
+aside .overlay .overlay-bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url("../img/introflowerbg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+aside .overlay .overlay-bee {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	background: url("../img/bee.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: .6;
+}
+
+aside .divider {
+	width: 90%;
+	height: 4px;
+	background: #512d1d;
+	margin-top: 30px;
+	padding-top: 4px;
+}
+
+aside .cart-items {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 900px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+aside .cart-items .divider {
+	width: 100%;
+}
+
+aside .products {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	font-family: "moderno-fb";
+}
+
+aside .products .product {
+	width: 100%;
+	height: auto;
+	border-bottom: 2px solid #512d1d;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+
+aside .products .product .product-info {
+	width: 60%;
+	padding-left: 5%;
+}
+
+aside .products .product .product-info p:first-of-type {
+	padding-bottom: 0;
+	font-size: 120%;
+}
+
+aside .products .product .product-info p:last-of-type {
+	font-family: "AkzidenzGroteskBE-Regular";
+	font-size: 80%;
+}
+
+aside .products .product .product-count {
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+aside .products .product .product-count span {
+	color: #fff;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-image: url("../img/hex-shape.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	text-align: center;
+	padding-top: 2px;
+}
+
+aside .products .product .product-price {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+}
+
+aside .products .product .product-price span:last-of-type {
+	cursor: pointer;
+}
+
+aside .checkout {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-bottom: 100px;
+}
+
+aside .checkout .subtotal {
+	width: 100%;
+	display: flex;
+	align-self: flex-end;
+	padding-left: 5%;
+}
+
+@media only screen and (min-width: 768px) {
+	aside .checkout .subtotal {
+		width: 60%;
+	}
+}
+
+aside .checkout .subtotal p {
+	width: 70%;
+}
+
+aside .checkout .subtotal p:nth-of-type(2) {
+	width: 30%;
+}
+
+aside .checkout .shipping {
+	width: 100%;
+	display: flex;
+	align-self: flex-end;
+	border-bottom: 2px solid #512d1d;
+	padding-left: 5%;
+}
+
+@media only screen and (min-width: 768px) {
+	aside .checkout .shipping {
+		width: 60%;
+	}
+}
+
+aside .checkout .shipping p {
+	width: 70%;
+}
+
+aside .checkout .shipping p:nth-of-type(2) {
+	width: 30%;
+	text-transform: uppercase;
+}
+
+aside .checkout .estimated-total {
+	width: 100%;
+	display: flex;
+	align-self: flex-end;
+	padding-left: 5%;
+}
+
+@media only screen and (min-width: 768px) {
+	aside .checkout .estimated-total {
+		width: 60%;
+	}
+}
+
+aside .checkout .estimated-total p {
+	width: 70%;
+}
+
+aside .checkout .estimated-total p:nth-of-type(2) {
+	width: 30%;
+	font-family: "AkzidenzGroteskBE-Regular";
+	font-weight: 600;
+	font-size: 125%;
+}
+
+div.product:last-of-type {
+	border-bottom: 0;
+}
+
+.overlay-checkout {
+	cursor: url("../img/exit.svg"), pointer;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(252, 252, 245, 0.5);
+	background-image: url("../img/introflowerbg.png");
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 101;
+	will-change: transform, opacity, z-index;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.checkout-message-wrap {
+	cursor: default;
+	width: 80%;
+	max-width: 400px;
+	height: auto;
+	background: #f0b227;
+	border-radius: 25px;
+	padding: 20px;
+	z-index: 102;
+}
+
+.checkout-message {
+	text-align: center;
+	background: #f0b227;
+}
+
+.checkout-message h2 {
+	margin-bottom: 10px;
+}
+
+/* 2. Pages ================================= */
+/*
+==============================================
+_pages.scss
+==============================================
+*/
+.page .bg {
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+}
+
+.page .contain {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.page1 .bg {
+	background: url("../img/introflowerbg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+@media only screen and (min-width: 768px) {
+	.page1 .bg {
+		background-size: 100%;
+	}
+}
+
+.page1 .contain {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+	.page1 .contain {
+		justify-content: flex-start;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page1 .contain h1 {
+		font-size: 75px;
+		letter-spacing: 3px;
+		margin-top: 250px;
+	}
+}
+
+.page2 .white {
+	height: 100%;
+	width: 100%;
+	background-color: #fcfcf5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.page2 .white {
+		width: 50%;
+	}
+}
+
+.page2 .white .bg {
+	height: 100%;
+	width: 100%;
+	background-color: #fcfcf5;
+	background-image: url("../img/causeflowerbg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+}
+
+.page2 .white .contain {
+	height: 100%;
+	width: 80%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+
+@media only screen and (min-width: 768px) {
+	.page2 .white .contain {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		margin-bottom: 0;
+	}
+}
+
+.page2 .white .contain h1 {
+	margin-top: 75px;
+	margin-left: 38px;
+	margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 320px) {
+	.page2 .white .contain h1 {
+		margin-left: 55px;
+		margin-top: 67px;
+	}
+}
+
+@media only screen and (min-width: 425px) {
+	.page2 .white .contain h1 {
+		margin-top: 100px;
+		margin-bottom: 30px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page2 .white .contain h1 {
+		font-size: 56px;
+		margin-top: 100px;
+		margin-bottom: 35px;
+		margin-left: 35px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.page2 .white .contain h1 {
+		font-size: 68px;
+	}
+}
+
+.page2 .white .contain p {
+	margin-left: 38px;
+	max-width: 400px;
+	height: auto;
+	text-align: left;
+}
+
+@media only screen and (min-width: 320px) {
+	.page2 .white .contain p {
+		margin-left: 55px;
+		font-size: 83%;
+	}
+}
+
+@media only screen and (min-width: 375px) {
+	.page2 .white .contain p {
+		font-size: 95%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page2 .white .contain p {
+		max-width: 300px;
+		margin-top: 0;
+		margin-left: 35px;
+		font-size: 135%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.page2 .white .contain p {
+		max-width: 400px;
+		font-size: 100%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page2 .white .contain p:nth-of-type(even) {
+		margin-top: 0;
+		margin-bottom: 25px;
+	}
+}
+
+.page2 .yellow {
+	height: 100%;
+	width: 0;
+	background-color: #f0b227;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	opacity: 1;
+	will-change: width;
+	transition-property: width;
+	transition-duration: .2s;
+	transition-timing-function: ease-in-out;
+}
+
+@media only screen and (min-width: 768px) {
+	.page2 .yellow {
+		width: 50%;
+	}
+}
+
+.page2 .yellow h6 {
+	color: #fcfcf5;
+	margin-top: 125px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page2 .yellow h6 {
+		margin-left: 75px;
+		margin-right: 25px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page2 .yellow h6 {
+		margin-left: 130px;
+	}
+}
+
+.page3 .white {
+	height: 65%;
+	width: 100%;
+	background-color: #fcfcf5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.page3 .white .bg {
+	height: 100%;
+	width: 100%;
+	background-color: #fcfcf5;
+	background-image: url("../img/growthflowerbg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+.page3 .white .contain {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.page3 .white .contain h1 {
+	font-size: 44px;
+	margin-left: 55px;
+	text-transform: uppercase;
+	max-width: 300px;
+}
+
+@media only screen and (min-width: 425px) {
+	.page3 .white .contain h1 {
+		margin-left: 75px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain h1 {
+		margin-left: 0;
+	}
+}
+
+.page3 .white .contain p {
+	text-align: left;
+	max-width: 300px;
+	margin-top: 10px;
+	margin-left: 55px;
+	font-size: 16px;
+}
+
+@media only screen and (min-width: 425px) {
+	.page3 .white .contain p {
+		margin-left: 75px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain p {
+		margin-left: 0;
+		max-width: 365px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page3 .white .contain p {
+		font-size: 18px;
+		max-width: 410px;
+		margin: 20px 0;
+	}
+}
+
+.page3 .white .contain .grow-btn {
+	position: relative;
+	margin-left: 55px;
+	margin-top: 5px;
+	padding: 11px 20px;
+}
+
+@media only screen and (min-width: 425px) {
+	.page3 .white .contain .grow-btn {
+		margin-left: 75px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .grow-btn {
+		margin-top: 15px;
+		margin-right: 103px;
+		margin-left: 0;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page3 .white .contain .grow-btn {
+		font-size: 105%;
+		margin-top: 0;
+		padding: 15px 20px;
+	}
+}
+
+.page3 .white .contain .grow-btn svg {
+	min-width: 177.5px;
+	min-height: 39.5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+	.page3 .white .contain .grow-btn svg {
+		min-width: 215px;
+	}
+}
+
+.page3 .white .contain .contain-block-1 {
+	width: 100%;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-1 {
+		align-items: flex-end;
+	}
+}
+
+.page3 .white .contain .contain-block-1 .block-1-content {
+	margin-right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-1 .block-1-content {
+		margin-right: 40px;
+	}
+}
+
+.page3 .white .contain .contain-block-2 {
+	width: 100%;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-2 {
+		align-items: flex-end;
+	}
+}
+
+.page3 .white .contain .contain-block-2 .block-2-content {
+	margin-right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-2 .block-2-content {
+		margin-right: 40px;
+	}
+}
+
+.page3 .white .contain .contain-block-2 h1 {
+	margin-left: 0;
+	font-size: 40px;
+}
+
+.page3 .white .contain .contain-block-2 .flex-buttons {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.page3 .white .contain .contain-block-2 .flex-buttons:nth-of-type(1) {
+	width: 100%;
+}
+
+.page3 .white .contain .contain-block-2 .flex-buttons:nth-of-type(2) {
+	justify-content: flex-end;
+	margin-left: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-2 .flex-buttons:nth-of-type(2) {
+		justify-content: flex-start;
+		margin-left: 0;
+	}
+}
+
+.page3 .white .contain .contain-block-2 .flex-buttons:nth-of-type(3) {
+	justify-content: flex-end;
+	margin-left: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-2 .flex-buttons:nth-of-type(3) {
+		justify-content: flex-start;
+		margin-left: 0;
+	}
+}
+
+.page3 .white .contain .contain-block-3 {
+	width: 100%;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-3 {
+		align-items: flex-end;
+	}
+}
+
+.page3 .white .contain .contain-block-3 .block-3-content {
+	margin-right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-3 .block-3-content {
+		margin-right: 40px;
+	}
+}
+
+.page3 .white .contain .contain-block-3 .block-3-content h1 {
+	margin-left: 0;
+}
+
+.page3 .white .contain .contain-block-3 .block-3-content .flex-buttons {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.page3 .white .contain .contain-block-3 .block-3-content .flex-buttons:nth-of-type(1) {
+	margin-right: 0;
+	flex-direction: row;
+	width: 100%;
+}
+
+.page3 .white .contain .contain-block-3 .block-3-content .flex-buttons:nth-of-type(2) {
+	align-items: flex-end;
+	margin-right: 135px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .white .contain .contain-block-3 .block-3-content .flex-buttons:nth-of-type(2) {
+		margin-right: 200px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page3 .white .contain .contain-block-3 .block-3-content .flex-buttons:nth-of-type(2) {
+		margin-right: 240px;
+	}
+}
+
+.page3 .yellow {
+	height: 35%;
+	width: 100%;
+	background-color: #f0b227;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.page3 .yellow h6 {
+	align-self: center;
+	max-width: 400px;
+	height: auto;
+	text-align: left;
+	color: #fcfcf5;
+	padding: 10px 0 10px 55px;
+	font-size: 24px;
+	line-height: 1.3;
+	margin-top: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page3 .yellow h6 {
+		margin-top: 0;
+		max-width: 300px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page3 .yellow h6 {
+		max-width: 800px;
+		font-size: 50px;
+	}
+}
+
+.page4 .yellow {
+	height: 100%;
+	width: 0;
+	background-color: #f0b227;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .yellow {
+		width: 50%;
+	}
+}
+
+.page4 .yellow h6 {
+	color: #fcfcf5;
+	margin-top: 125px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .yellow h6 {
+		max-width: 500px;
+		padding: 45px;
+	}
+}
+
+.page4 .white {
+	height: 100%;
+	width: 75%;
+	background-color: #fcfcf5;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .white {
+		width: 50%;
+	}
+}
+
+.page4 .white .bg {
+	height: 100%;
+	width: 100%;
+	background-color: #fcfcf5;
+	background-image: url("../img/donateflowerbg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+
+.page4 .white .contain {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .white .contain {
+		padding-right: 0;
+		margin-right: 10%;
+	}
+}
+
+.page4 .white .contain h1 {
+	max-width: 200px;
+	max-height: 50px;
+	margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 425px) {
+	.page4 .white .contain h1 {
+		font-size: 50px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .white .contain h1 {
+		max-width: 200px;
+		margin-bottom: 20px;
+	}
+}
+
+.page4 .white .contain p {
+	max-width: 400px;
+	height: auto;
+	text-align: right;
+	margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .white .contain p {
+		max-width: 300px;
+		font-size: 16px;
+		margin-top: 0;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page4 .white .contain p {
+		max-width: 350px;
+		font-size: 20px;
+		margin-top: 0;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .white .contain button {
+		margin-top: 0;
+	}
+}
+
+.page4 .white .contain .donate-block-1 {
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	display: flex;
+	margin-right: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .white .contain .donate-block-1 {
+		margin-right: 20px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page4 .white .contain .donate-block-1 {
+		margin-right: 40px;
+	}
+}
+
+.page4 .white .contain .donate-block-2 {
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	display: none;
+	margin-right: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page4 .white .contain .donate-block-2 {
+		margin-right: 20px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page4 .white .contain .donate-block-2 {
+		margin-right: 100px;
+	}
+}
+
+.page5 .yellow {
+	height: 55%;
+	width: 100%;
+	background-color: #f0b227;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.page5 .yellow .bg {
+	height: 100%;
+	width: 100%;
+	background-image: url("../img/followflowerbg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+.page5 .yellow .contain {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media only screen and (min-width: 1440px) {
+	.page5 .yellow .contain {
+		height: 55%;
+	}
+}
+
+.page5 .yellow .contain h1 {
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+	.page5 .yellow .contain h1 {
+		font-size: 52px;
+		margin-top: 20px;
+		margin-bottom: 0;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page5 .yellow .contain h1 {
+		margin-top: 20%;
+	}
+}
+
+.page5 .yellow .contain p {
+	max-width: 90%;
+	text-align: center;
+	padding-top: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.page5 .yellow .contain p {
+		margin-top: 0;
+		font-size: 20px;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page5 .yellow .contain p {
+		max-width: 550px;
+	}
+}
+
+.page5 .yellow .contain p:nth-of-type(1) {
+	padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.page5 .yellow .contain p:nth-of-type(1) {
+		margin-top: 10px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.page5 .yellow .contain p:nth-of-type(2) {
+		max-width: 450px;
+	}
+}
+
+.page5 .white {
+	height: 45%;
+	width: 100%;
+	background-color: #fcfcf5;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	object-fit: contain;
+	background-image: url("../img/full-logo.png");
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+@media only screen and (min-width: 768px) {
+	.page5 .white {
+		background-size: 20%;
+	}
+}
+
+@media only screen and (min-width: 1440px) {
+	.page5 .white {
+		background-size: 25%;
+	}
+}
+
+.page5 .white img {
+	padding: 50px;
+	max-height: 45vh;
+	max-width: 388px;
+}

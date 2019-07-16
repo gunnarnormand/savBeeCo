@@ -1,0 +1,39 @@
+/*
+==============================================
+_onepagescroll.scss
+==============================================
+*/
+
+body,
+html {
+	margin: 0;
+	overflow: hidden;
+	-webkit-transition: opacity 400ms;
+	-moz-transition: opacity 400ms;
+	transition: opacity 400ms;
+}
+
+.onepage-wrapper,
+body,
+html {
+	display: block;
+	position: static;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.onepage-wrapper {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	padding: 0;
+	-webkit-transform-style: preserve-3d;
+}
+
+.onepage-wrapper .ops-section {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}

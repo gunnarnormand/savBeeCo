@@ -1,0 +1,129 @@
+/*
+==============================================
+_main.scss
+==============================================
+*/
+
+* {
+	box-sizing: border-box;
+
+	&:focus {
+		outline: none;
+	}
+
+}
+
+body,
+html {
+	font-family: $paragraph-font, sans-serif;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	color: $brown;
+}
+
+body {
+	background-color: $transparent;
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+}
+
+img {
+	display: block;
+	width: auto;
+	height: auto;
+}
+
+section {
+	background-color: $cream;
+}
+
+.bees {
+	width: 100%;
+}
+
+.bee1,
+.bee2,
+.bee3 {
+	height: 265px;
+	width: auto;
+	position: absolute;
+	bottom: -100px;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	z-index: 98;
+	opacity: 1;
+	will-change: opacity, transform;
+
+	@include breakpoint-tablet {
+		height: 389px;
+		bottom: -275px;
+	}
+
+	@include breakpoint-desktop {
+		bottom: -250px;
+		height: 489px;
+	}
+}
+
+.bee2,
+.bee3 {
+	opacity: 0;
+}
+
+.scroll-indicator {
+	height: 50px;
+	position: absolute;
+	bottom: 110px;
+	left: 51%;
+	transform: translateX(-50%);
+	z-index: 98;
+	opacity: 0;
+	will-change: opacity;
+	transition-property: opacity;
+	transition-duration: .5s;
+	transition-timing-function: ease-in-out;
+
+	@include breakpoint-mobile-lg {
+		left: 50.5%;
+	}
+
+	@include breakpoint-tablet {
+		height: 65px;
+		bottom: 90px;
+	}
+
+	@include breakpoint-desktop {
+		height: 100px;
+		bottom: 130px;
+	}
+}
+
+.inline-link {
+	color: $brown;
+	text-decoration: none;
+	letter-spacing: 1.25px;
+	font-size: 110%;
+	position: relative;
+	padding: 5px 0;
+}
+
+.link-highlight {
+	position: absolute;
+	bottom: 3px;
+	left: 0;
+	width: 0;
+	height: 30%;
+	background: $brown-op-25;
+	display: block;
+}
+
+.remove {
+	max-width: max-content;
+	transition-property: color;
+	transition-duration: .3s;
+	transition-timing-function: cubic-bezier(.5, 0, .5, 1);
+
+	&:hover {
+		color: $yellow;
+	}
+}

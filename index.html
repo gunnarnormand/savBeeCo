@@ -1,0 +1,674 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Save the Bees - Savannah Bee Company</title>
+	<meta name="description" content="With bee extinction becoming highly probable, we’ve created a microsite extension for Savannah Bee Company to promote natural habitats for pollinators.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://use.typekit.net/fok2doe.css">
+	<link rel="stylesheet" href="dist/css/index.min.css">
+</head>
+
+<body>
+
+	<div id="loader" class="loader">
+		<img src="./dist/img/full-logo.png" alt="loading">
+	</div>
+
+	<header role="header">
+		<a href="./index.html" id="nav-logo" class="nav-logo">
+			<img src="./dist/img/type-logo.png" alt="logo">
+		</a>
+		<div class="tinybees">
+			<img id="tinybee1" src="./dist/img/tinybee1.png" alt="tiny bee">
+			<img id="tinybee2" src="./dist/img/tinybee2.png" alt="tiny bee">
+			<img id="tinybee3" src="./dist/img/tinybee3.png" alt="tiny bee">
+			<img id="tinybee4" src="./dist/img/tinybee4.png" alt="tiny bee">
+			<img id="tinybee5" src="./dist/img/tinybee5.png" alt="tiny bee">
+		</div>
+		<img id="shop-btn" class="shop-btn" src="./dist/img/hive.svg" alt="cart">
+		<div id="cart" class="cart"></div>
+		<div id="tooltip" class="tooltip">your cart is empty</div>
+	</header>
+	<div id="overlay-checkout" class="overlay-checkout">
+		<div class="checkout-message-wrap">
+			<div class="checkout-message">
+				<h2>Hey there!</h2>
+				<h3>Thanks for trying to purchase and save the bees, however this is not a real product.</h3>
+				<p>For more information on how to save the bees see <a class="inline-link" href="https://thehoneybeeconservancy.org/how-to-save-the-bees/" target="_blank">here</a>. Or for more portfolio work see <a class="inline-link" href="http://gunnar.tech/" target="_blank">here</a>.</p>
+			</div>
+		</div>
+	</div>
+	<aside data-menu="hide">
+		<div class="overlay">
+			<div class="overlay-bg">
+				<div class="overlay-bee"></div>
+			</div>
+		</div>
+		<div class="shopping-cart">
+			<svg class="menu-back" id="menu-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.21 33.54">
+				<defs>
+					<style>
+						.menu-back-path-1 {
+							fill: none;
+							stroke: #512d1d;
+							stroke-miterlimit: 10;
+							stroke-width: 4px;
+						}
+
+						.menu-back-path-1_ {
+							fill: none;
+							stroke: #512d1d;
+							stroke-miterlimit: 10;
+							stroke-width: 4px;
+						}
+					</style>
+				</defs>
+				<polyline class="menu-back-path-1" points="17.57 32.13 2.83 17.39 18.8 1.41" />
+				<polyline class="menu-back-path-1_" points="17.57 32.13 2.83 17.39 18.8 1.41" />
+			</svg>
+			<img src="./dist/img/hive.svg" alt="cart">
+			<h2 id="menu-cart">shopping cart</h2>
+			<div class="divider"></div>
+			<div class="cart-items">
+				<div id="products" class="products">
+					<span class="checkout">
+						<div class="divider"></div>
+						<div class="subtotal">
+							<p>subtotal</p>
+							<p class="total-cost">$0.00</p>
+						</div>
+						<div class="shipping">
+							<p>estimated shipping</p>
+							<p>free</p>
+						</div>
+						<div class="estimated-total">
+							<p>estimated total</p>
+							<p class="estimated-total-cost">$0.00</p>
+						</div>
+						<button id="checkout-btn" class="checkout-btn">
+								checkout
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182.57 41.48">
+									<defs>
+										<style>
+											.checkout-btn-1 {
+												fill: none;
+												stroke: #512d1d;
+												stroke-miterlimit: 10;
+												stroke-width: 2.21px;
+											}
+
+											.checkout-btn-2 {
+												fill: #512d1d;
+											}
+										</style>
+									</defs>
+									<path class="checkout-btn-1" d="M13.86,40.37H168.71a3.36,3.36,0,0,0,2.91-1.68L181,22.42a3.36,3.36,0,0,0,0-3.36l-9.4-16.27a3.36,3.36,0,0,0-2.91-1.68H13.86A3.36,3.36,0,0,0,11,2.78L1.55,19.06a3.36,3.36,0,0,0,0,3.36L11,38.69A3.36,3.36,0,0,0,13.86,40.37Z"></path>
+									<polygon class="checkout-btn-2" points="162.01 13.86 160.19 15.68 163.92 19.41 148.22 19.41 148.22 21.99 163.92 21.99 160.19 25.71 162.01 27.54 168.85 20.7 162.01 13.86"></polygon>
+								</svg>
+							</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</aside>
+
+
+	<div class="bees">
+		<img src="./dist/img/bee.png" alt="bee" class="bee1">
+		<img src="./dist/img/bee.png" alt="bee" class="bee2">
+		<img src="./dist/img/bee.png" alt="bee" class="bee3">
+		<svg id="scroll-indicator" class="scroll-indicator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.5 49.1">
+			<defs>
+				<style>
+					.cls-1 {
+						fill: none;
+						stroke: #fcfcf5;
+						stroke-miterlimit: 10;
+						stroke-width: 0.5px;
+					}
+				</style>
+			</defs>
+			<circle id="path-1" class="circle cls-1" cx="5.75" cy="5.75" r="5.5" />
+			<circle id="path-2" class="circle cls-1" cx="5.75" cy="21" r="3.75" />
+			<circle id="path-3" class="circle cls-1" cx="5.75" cy="33" r="2.75" />
+			<polyline id="path-4" class="circle cls-1" points="9.75 44.75 5.75 48.75 1.75 44.75" />
+		</svg>
+	</div>
+
+	<main id="main" class="main">
+		<section id="page1" class="page page1">
+			<div class="bg"></div>
+			<div class="contain">
+				<h1 id="stb">Save the Bees</h1>
+			</div>
+		</section>
+		<section id="page2" class="page page2">
+			<div class="white">
+				<div class="bg"></div>
+				<div class="contain">
+					<h1 id="tc">The Cause</h1>
+					<p class="page2ptext">Beekeepers are seeing their colonies rapidly fall in past years. Instead of dwelling on this incredible tragedy, we decided to create a solution so everyone can help to save our domestic honeybee populations.
+					</p>
+					<p class="page2ptext">You may not be able to accomplish planting a whole garden, but even just one or two can make a huge difference and together we can save the bees! Your efforts will be appreciated by beekeepers, honeybees,
+						flowers, trees, farmers, and honey lovers everywhere.</p>
+				</div>
+			</div>
+			<div class="yellow grow-horiz">
+				<h6 class="grow-horiz-type">we help put food on your tables, help us have food to eat...</h6>
+			</div>
+		</section>
+		<section id="page3" class="page page3">
+			<div class="white">
+				<div class="bg"></div>
+				<div class="contain">
+					<div class="contain-block-1">
+						<div class="block-1-content">
+							<!-- <img src="./dist/img/growthforbees.png" > -->
+							<h1>Growth for Bees</h1>
+							<p>For bees to carry out the pollination process, they need lots of nectar. Making your own bee-friendly garden is one way we can all help save the bees! Not only will the bees thank you, but your flowers will too!</p>
+							<button id="grow-btn" class="grow-btn">
+								grow your garden
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182.57 41.48">
+									<defs>
+										<style>
+											.grow-btn-1 {
+												fill: none;
+												stroke: #512d1d;
+												stroke-miterlimit: 10;
+												stroke-width: 2.21px;
+											}
+
+											.grow-btn-2 {
+												fill: #512d1d;
+											}
+										</style>
+									</defs>
+									<path class="grow-btn-1"
+									 d="M13.86,40.37H168.71a3.36,3.36,0,0,0,2.91-1.68L181,22.42a3.36,3.36,0,0,0,0-3.36l-9.4-16.27a3.36,3.36,0,0,0-2.91-1.68H13.86A3.36,3.36,0,0,0,11,2.78L1.55,19.06a3.36,3.36,0,0,0,0,3.36L11,38.69A3.36,3.36,0,0,0,13.86,40.37Z" />
+									<polygon class="grow-btn-2" points="162.01 13.86 160.19 15.68 163.92 19.41 148.22 19.41 148.22 21.99 163.92 21.99 160.19 25.71 162.01 27.54 168.85 20.7 162.01 13.86" />
+								</svg>
+							</button>
+						</div>
+					</div>
+					<div class="contain-block-2">
+						<div class="block-2-content">
+							<div class="flex-buttons">
+								<svg id="back-btn-grow" class="back-btn-grow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.21 33.54">
+									<defs>
+										<style>
+											.back-btn-1 {
+												fill: none;
+												stroke: #512d1d;
+												stroke-miterlimit: 10;
+												stroke-width: 4px;
+											}
+
+											.back-btn-1_ {
+												fill: none;
+												stroke: #512d1d;
+												stroke-miterlimit: 10;
+												stroke-width: 4px;
+											}
+										</style>
+									</defs>
+									<polyline class="back-btn-1" points="17.57 32.13 2.83 17.39 18.8 1.41" />
+								</svg>
+								<h1>Grow Your Garden</h1>
+							</div>
+							<p>Running low on space for your bee garden? You only need a small bit of land! Even window containers and rooftops create an inviting oasis for bees. Every little bit can help to nurture bees and other pollinators.</p>
+							<div class="flex-buttons">
+								<button class="grow-btns small-btn-text">annual garden
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247.59 78.29">
+										<defs>
+											<style>
+												.garden-cls-2 {
+													fill: none;
+													stroke-miterlimit: 10;
+												}
+
+												.garden-cls-2 {
+													stroke: #512d1d;
+													stroke-width: 1.55px;
+												}
+
+												.garden-cls-3 {
+													fill: #512d1d;
+												}
+
+												.garden-cls-4 {
+													fill: #fcfcf5;
+												}
+											</style>
+										</defs>
+										<path class="garden-cls-2"
+										 d="M17.19,54.19H230.4a2.36,2.36,0,0,0,2-1.18L246.5,28.66a2.36,2.36,0,0,0,0-2.36L232.44,2a2.36,2.36,0,0,0-2-1.18H17.19a2.36,2.36,0,0,0-2,1.18L1.09,26.31a2.36,2.36,0,0,0,0,2.36L15.15,53A2.36,2.36,0,0,0,17.19,54.19Z" />
+										<path class="garden-cls-3" d="M182.89.77h47.47a2.36,2.36,0,0,1,2,1.18l14.06,24.35a2.36,2.36,0,0,1,0,2.36L232.41,53a2.36,2.36,0,0,1-2,1.18H182.89Z" />
+										<polygon class="garden-cls-4" points="220.01 18.13 217.53 20.6 222.6 25.68 201.25 25.68 201.25 29.18 222.6 29.18 217.53 34.25 220.01 36.73 229.31 27.43 220.01 18.13" />
+									</svg>
+								</button>
+								<button class="grow-btns small-btn-text">mixed garden
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247.59 78.29">
+										<defs>
+											<style>
+												.garden-cls-2 {
+													fill: none;
+													stroke-miterlimit: 10;
+												}
+
+												.garden-cls-2 {
+													stroke: #512d1d;
+													stroke-width: 1.55px;
+												}
+
+												.garden-cls-3 {
+													fill: #512d1d;
+												}
+
+												.garden-cls-4 {
+													fill: #fcfcf5;
+												}
+											</style>
+										</defs>
+										<path class="garden-cls-2"
+										 d="M17.19,54.19H230.4a2.36,2.36,0,0,0,2-1.18L246.5,28.66a2.36,2.36,0,0,0,0-2.36L232.44,2a2.36,2.36,0,0,0-2-1.18H17.19a2.36,2.36,0,0,0-2,1.18L1.09,26.31a2.36,2.36,0,0,0,0,2.36L15.15,53A2.36,2.36,0,0,0,17.19,54.19Z" />
+										<path class="garden-cls-3" d="M182.89.77h47.47a2.36,2.36,0,0,1,2,1.18l14.06,24.35a2.36,2.36,0,0,1,0,2.36L232.41,53a2.36,2.36,0,0,1-2,1.18H182.89Z" />
+										<polygon class="garden-cls-4" points="220.01 18.13 217.53 20.6 222.6 25.68 201.25 25.68 201.25 29.18 222.6 29.18 217.53 34.25 220.01 36.73 229.31 27.43 220.01 18.13" />
+									</svg>
+								</button>
+							</div>
+							<div class="flex-buttons">
+								<button class="grow-btns small-btn-text"><span>perennial garden</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247.59 78.29">
+										<defs>
+											<style>
+												.garden-cls-2 {
+													fill: none;
+													stroke-miterlimit: 10;
+												}
+
+												.garden-cls-2 {
+													stroke: #512d1d;
+													stroke-width: 1.55px;
+												}
+
+												.garden-cls-3 {
+													fill: #512d1d;
+												}
+
+												.garden-cls-4 {
+													fill: #fcfcf5;
+												}
+											</style>
+										</defs>
+										<path class="garden-cls-2"
+										 d="M17.19,54.19H230.4a2.36,2.36,0,0,0,2-1.18L246.5,28.66a2.36,2.36,0,0,0,0-2.36L232.44,2a2.36,2.36,0,0,0-2-1.18H17.19a2.36,2.36,0,0,0-2,1.18L1.09,26.31a2.36,2.36,0,0,0,0,2.36L15.15,53A2.36,2.36,0,0,0,17.19,54.19Z" />
+										<path class="garden-cls-3" d="M182.89.77h47.47a2.36,2.36,0,0,1,2,1.18l14.06,24.35a2.36,2.36,0,0,1,0,2.36L232.41,53a2.36,2.36,0,0,1-2,1.18H182.89Z" />
+										<polygon class="garden-cls-4" points="220.01 18.13 217.53 20.6 222.6 25.68 201.25 25.68 201.25 29.18 222.6 29.18 217.53 34.25 220.01 36.73 229.31 27.43 220.01 18.13" />
+									</svg>
+								</button>
+								<button class="grow-btns small-btn-text">herb garden
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247.59 78.29">
+										<defs>
+											<style>
+												.garden-cls-2 {
+													fill: none;
+													stroke-miterlimit: 10;
+												}
+
+												.garden-cls-2 {
+													stroke: #512d1d;
+													stroke-width: 1.55px;
+												}
+
+												.garden-cls-3 {
+													fill: #512d1d;
+												}
+
+												.garden-cls-4 {
+													fill: #fcfcf5;
+												}
+											</style>
+										</defs>
+										<path class="garden-cls-2"
+										 d="M17.19,54.19H230.4a2.36,2.36,0,0,0,2-1.18L246.5,28.66a2.36,2.36,0,0,0,0-2.36L232.44,2a2.36,2.36,0,0,0-2-1.18H17.19a2.36,2.36,0,0,0-2,1.18L1.09,26.31a2.36,2.36,0,0,0,0,2.36L15.15,53A2.36,2.36,0,0,0,17.19,54.19Z" />
+										<path class="garden-cls-3" d="M182.89.77h47.47a2.36,2.36,0,0,1,2,1.18l14.06,24.35a2.36,2.36,0,0,1,0,2.36L232.41,53a2.36,2.36,0,0,1-2,1.18H182.89Z" />
+										<polygon class="garden-cls-4" points="220.01 18.13 217.53 20.6 222.6 25.68 201.25 25.68 201.25 29.18 222.6 29.18 217.53 34.25 220.01 36.73 229.31 27.43 220.01 18.13" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="contain-block-3">
+						<div class="block-3-content">
+							<div class="flex-buttons">
+								<svg id="back-btn-herbs" class="back-btn-herbs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.21 33.54">
+									<defs>
+										<style>
+											.back-btn-2 {
+												fill: none;
+												stroke: #512d1d;
+												stroke-miterlimit: 10;
+												stroke-width: 4px;
+											}
+
+											.back-btn-2_ {
+												fill: none;
+												stroke: #512d1d;
+												stroke-miterlimit: 10;
+												stroke-width: 4px;
+											}
+										</style>
+									</defs>
+									<polyline class="back-btn-2" points="17.57 32.13 2.83 17.39 18.8 1.41" />
+								</svg>
+								<h1>Herbs</h1>
+							</div>
+							<p>Spring is in the air, and so are the honey bees! Planting an herb garden will give bees nectar to eat and provide seasoning for your kitchen.</p>
+							<div class="flex-buttons">
+								<button data-description="2 sq ft of lavender, sage, cilantro, thyme, fennel, and borage." data-name="garden: small" data-price="40" type="button" class="herb-btns small-btn-text">small garden
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+										<defs>
+											<style>
+												.herbs-cls-1 {
+													fill: none;
+													stroke: #512d1d;
+													stroke-miterlimit: 10;
+													stroke-width: 2px;
+												}
+
+												.herbs-cls-2 {
+													fill: #512d1d;
+												}
+											</style>
+										</defs>
+										<path class="herbs-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+										<path class="herbs-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+										<div class="price">$40</div>
+									</svg>
+								</button>
+								<button data-description="4 sq ft of lavender, sage, cilantro, thyme, fennel, and borage." data-name="garden: medium" data-price="80" type="button" class="herb-btns small-btn-text">medium garden
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+										<defs>
+											<style>
+												.herbs-cls-1 {
+													fill: none;
+													stroke: #512d1d;
+													stroke-miterlimit: 10;
+													stroke-width: 2px;
+												}
+
+												.herbs-cls-2 {
+													fill: #512d1d;
+												}
+											</style>
+										</defs>
+										<path class="herbs-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+										<path class="herbs-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+										<div class="price">$80</div>
+									</svg>
+								</button>
+								<button data-description="6 sq ft of lavender, sage, cilantro, thyme, fennel, and borage." data-name="garden: large" data-price="125" type="button" class="herb-btns small-btn-text">large garden
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+										<defs>
+											<style>
+												.herbs-cls-1 {
+													fill: none;
+													stroke: #512d1d;
+													stroke-miterlimit: 10;
+													stroke-width: 2px;
+												}
+
+												.herbs-cls-2 {
+													fill: #512d1d;
+												}
+											</style>
+										</defs>
+										<path class="herbs-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+										<path class="herbs-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+										<div class="price"><span>$125</span></div>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="yellow">
+				<h6>we are the only insects that produce food eaten by you...</h6>
+			</div>
+		</section>
+		<section id="page4" class="page page4">
+			<div class="yellow grow-horiz">
+				<h6 class="grow-horiz-type">we can fly for up to six miles, and as fast as 15 miles per hour, but please dont make us find food or a home..</h6>
+			</div>
+			<div class="white">
+				<div class="bg"></div>
+				<div class="contain">
+					<div class="donate-block-1">
+						<h1>Donate</h1>
+						<p>Still feel like you don't have the space to create your own bee oasis? That's okay. You can still help out the bees by donating to our cause.</p>
+						<p>Every donation will go towards planting bee gardens, creating bee hives, and
+							educating youth.</p>
+						<button class="small-btn-text donate-btn-first" id="donate-btn">
+							make your donation
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182.57 41.48">
+								<defs>
+									<style>
+										.donate-btn-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2.21px;
+										}
+
+										.donate-btn-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="donate-btn-1"
+								 d="M13.86,40.37H168.71a3.36,3.36,0,0,0,2.91-1.68L181,22.42a3.36,3.36,0,0,0,0-3.36l-9.4-16.27a3.36,3.36,0,0,0-2.91-1.68H13.86A3.36,3.36,0,0,0,11,2.78L1.55,19.06a3.36,3.36,0,0,0,0,3.36L11,38.69A3.36,3.36,0,0,0,13.86,40.37Z" />
+								<polygon class="donate-btn-2" points="162.01 13.86 160.19 15.68 163.92 19.41 148.22 19.41 148.22 21.99 163.92 21.99 160.19 25.71 162.01 27.54 168.85 20.7 162.01 13.86" />
+							</svg>
+						</button>
+					</div>
+					<div class="donate-block-2">
+						<h1>Donate</h1>
+						<p>No donation is too small or large. We are here to create an environment for bees to buzz around and have plenty of food and homes to enjoy.</p>
+						<button data-description="A small hive can give up to 40,000 bees a home to live in." data-name="donate: small hive" data-price="40" class="donate-btn small-btn-text">small hive
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+								<defs>
+									<style>
+										.donate-cls-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2px;
+										}
+
+										.donate-cls-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="donate-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+								<path class="donate-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+								<p class="price">$40</p>
+							</svg>
+						</button>
+						<button data-description="A small garden can give up to 25,000 bees a home to live in." data-name="donate: small garden" data-price="25" class="donate-btn small-btn-text">small garden
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+								<defs>
+									<style>
+										.donate-cls-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2px;
+										}
+
+										.donate-cls-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="donate-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+								<path class="donate-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+								<p class="price">$25</p>
+							</svg>
+						</button>
+						<button data-description="A medium hive can give up to 70,000 bees a home to live in." data-name="donate: medium hive" data-price="70" class="donate-btn small-btn-text">medium hive
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+								<defs>
+									<style>
+										.donate-cls-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2px;
+										}
+
+										.donate-cls-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="donate-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+								<path class="donate-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+								<p class="price">$70</p>
+							</svg>
+						</button>
+						<button data-description="A medium garden can give up to 50,000 bees a home to live in." data-name="donate: medium garden" data-price="50" class="donate-btn small-btn-text">medium garden
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+								<defs>
+									<style>
+										.donate-cls-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2px;
+										}
+
+										.donate-cls-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="donate-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+								<path class="donate-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+								<p class="price">$50</p>
+							</svg>
+						</button>
+						<button data-description="A large hive can give up to 100,000 bees a home to live in." data-name="donate: large hive" data-price="100" class="donate-btn small-btn-text">large hive
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+								<defs>
+									<style>
+										.donate-cls-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2px;
+										}
+
+										.donate-cls-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="donate-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+								<path class="donate-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+								<p class="price"><span>$100</span></p>
+							</svg>
+						</button>
+						<button data-description="A large garden can give up to 75,000 bees a home to live in." data-name="donate: large garden" data-price="75" class="donate-btn small-btn-text">large garden
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319.82 71">
+								<defs>
+									<style>
+										.donate-cls-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2px;
+										}
+
+										.donate-cls-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="donate-cls-1" d="M22.2,70H297.61a3,3,0,0,0,2.63-1.52L318.41,37a3,3,0,0,0,0-3L300.25,2.52A3,3,0,0,0,297.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+								<path class="donate-cls-2" d="M83.53,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70H83.53Z" />
+								<p class="price">$75</p>
+							</svg>
+						</button>
+						<form class="custom-donation" id="custom-donation" action="/">
+							<input type="number" min="1.00" placeholder="custom donation" />
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 358.82 71">
+								<defs>
+									<style>
+										.customd-cls-1 {
+											fill: none;
+											stroke: #512d1d;
+											stroke-miterlimit: 10;
+											stroke-width: 2px;
+										}
+
+										.customd-cls-2 {
+											fill: #512d1d;
+										}
+									</style>
+								</defs>
+								<path class="customd-cls-1" d="M22.2,70H336.61a3,3,0,0,0,2.63-1.52L357.41,37a3,3,0,0,0,0-3L339.25,2.52A3,3,0,0,0,336.61,1H22.2a3,3,0,0,0-2.63,1.52L1.41,34a3,3,0,0,0,0,3L19.57,68.48A3,3,0,0,0,22.2,70Z" />
+								<path class="customd-cls-2" d="M251,1h85.32a3,3,0,0,1,2.63,1.52L357.07,34a3,3,0,0,1,0,3L338.91,68.5A3,3,0,0,1,336.28,70H251Z" />
+							</svg>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="page5" class="page page5">
+			<div class="yellow">
+				<div class="bg"></div>
+				<div class="contain">
+					<h1 id="ftm">Follow the Movement</h1>
+					<p>Want to know more about our save the bees movement?</p>
+					<p>Sign up below to recieve email updates and learn more about how we are making an impact.</p>
+					<form id="email" class="email-form" action="/">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 429.82 69">
+							<defs>
+								<style>
+									.ftm-cls-1 {
+										fill: #fff;
+									}
+
+									.ftm-cls-2 {
+										fill: #512d1d;
+									}
+								</style>
+							</defs>
+							<path class="ftm-cls-1" d="M408.61,0H21.2a3,3,0,0,0-2.63,1.52L.41,33a3,3,0,0,0,0,3L18.57,67.48A3,3,0,0,0,21.2,69H408.61a3,3,0,0,0,2.63-1.52L429.41,36a3,3,0,0,0,0-3L411.25,1.52A3,3,0,0,0,408.61,0Z" />
+							<path id="go-btn-path" class="ftm-cls-2" d="M347.29,69h61.32a3,3,0,0,0,2.63-1.52L429.41,36a3,3,0,0,0,0-3L411.25,1.52A3,3,0,0,0,408.61,0H347.29Z" />
+						</svg>
+						<input type="email" placeholder="email address">
+						<button type="submit" value="go">Go</button>
+					</form>
+				</div>
+			</div>
+			<div class="white"></div>
+		</section>
+	</main>
+
+	<!-- JS -->
+	<script src="dist/js/vendor/gsap-min/TweenMax.min.js" type="text/javascript"></script>
+	<script src="dist/js/vendor/gsap-min/plugins/DrawSVGPlugin.min.js" type="text/javascript"></script>
+	<script src="dist/js/vendor/gsap-min/easing/CustomEase.min.js" type="text/javascript"></script>
+	<script src="dist/js/vendor/gsap-min/easing/CustomWiggle.min.js" type="text/javascript"></script>
+	<script src="dist/js/vendor/onepagescroll.js" type="text/javascript"></script>
+	<script src="dist/js/bundle.min.js" type="text/javascript"></script>
+</body>
+
+</html>
