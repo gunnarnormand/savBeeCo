@@ -160,31 +160,41 @@ var shoppingCart = function () {
 
       if (totalProductCount < 1) {
         TweenMax.to('#tinybee1', .5, {
-          alpha: 0
+          alpha: 0,
+          x: 0,
+          y: 0
         });
       }
 
       if (totalProductCount < 2) {
         TweenMax.to('#tinybee2', .5, {
-          alpha: 0
+          alpha: 0,
+          x: 0,
+          y: 0
         });
       }
 
       if (totalProductCount < 3) {
         TweenMax.to('#tinybee3', .5, {
-          alpha: 0
+          alpha: 0,
+          x: 0,
+          y: 0
         });
       }
 
       if (totalProductCount < 4) {
         TweenMax.to('#tinybee4', .5, {
-          alpha: 0
+          alpha: 0,
+          x: 0,
+          y: 0
         });
       }
 
       if (totalProductCount < 5) {
         TweenMax.to('#tinybee5', .5, {
-          alpha: 0
+          alpha: 0,
+          x: 0,
+          y: 0
         });
       }
 
